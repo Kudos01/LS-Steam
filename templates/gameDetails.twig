@@ -1,0 +1,15 @@
+{% extends 'base.twig' %}
+
+{% block title %}Store Page{% endblock %}
+
+{% block content %}
+    <h1>Game details </h1>
+    {% if deal is not empty %}
+        <p>{{ deal.title }}</p>
+        <p>{{ deal.gameID }}</p>
+        <p>{{ deal.normalPrice }}</p>
+        <img src={{ deal.thumb }}  width="100" height="100">
+        <input hidden value={{ deal.normalPrice }} name="normalPrice">
+        <input type="submit" value="Buy the game">
+    {% endif %}
+{% endblock %}

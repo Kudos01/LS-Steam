@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+
+{% block title %}Store Page{% endblock %}
+
+{% block content %}
+    <h3>Here are the games you bought</h3>
+    {% if myGames is not empty %}
+        <div class="main-wrapper">
+        <div class="deals-list">
+            {% for game in myGames %}
+                <div class="deal">
+                    <div class="game-image-wrapper">
+                        <img class="game-image" src={{ game["info"].thumb }}>
+                    </div>
+                    <p>{{ game["info"].title }}</p>
+                    <p>{{ game["thumb"] }}</p>
+                    <p>{{ game.normalPrice }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    {% endif %}
+{% endblock %}

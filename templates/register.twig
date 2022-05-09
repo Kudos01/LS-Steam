@@ -1,0 +1,101 @@
+{% extends 'base.twig' %}
+
+{% block title %}Register form{% endblock %}
+
+{% block content %}
+    <section class="form-section">
+        <form action="{{ formAction }}" method="{{ formMethod }}" accept-charset="utf-8">
+            <div class="input-wrapper">
+                <input type="text"
+                   name="username"
+                   value="{% if formData.username %}{{ formData.username }}{% endif %}"
+                   required
+                    placeholder="Username"
+                >
+            </div>
+            <div class="input-wrapper">
+             <input type="text"
+                   name="email"
+                   value="{% if formData.email %}{{ formData.email }}{% endif %}"
+                   required
+                    placeholder="Email"
+             >
+            </div>
+
+            <div class="input-wrapper">
+            <input type="password"
+                   name="password"
+                   value="{% if formData.password %}{{ formData.password }}{% endif %}"
+                   required
+                   placeholder="Password"
+            >
+            </div>
+
+            <div class="input-wrapper">
+            <input type="password"
+                   name="password_repeated"
+                   value="{% if formData.password_repeated %}{{ formData.password_repeated }}{% endif %}"
+                   required
+                   placeholder="Password Repeat"
+            >
+            </div>
+            <div class="input-wrapper">
+                <input type="date"
+                       name="birthdate"
+                       min="1950-01-01"
+                       max="2021-01-01"
+                       value="{% if formData.birthdate %}{{ formData.birthdate }}{% endif %}"
+                       required>
+            </div>
+            <div class="input-wrapper">
+                <input type="tel"
+                   name="telephone"
+                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                   placeholder="123-456-789"
+                   value="{% if formData.telephone %}{{ formData.telephone }}{% endif %}"
+                >
+            </div>
+            <input class="submit" type="submit" value="Register">
+
+            {% if formErrors.username %}
+                <p style="color: red;">{{ formErrors.username }}</p>
+            {% endif %}
+
+            {% if formErrors.username_taken %}
+            <p style="color: red;">{{ formErrors.username_taken }}</p>
+            {% endif %}
+
+            {% if formErrors.email %}
+                <p style="color: red;">{{ formErrors.email }}</p>
+            {% endif %}
+
+            {% if formErrors.email_taken %}
+                <p style="color: red;">{{ formErrors.email_taken }}</p>
+            {% endif %}
+
+            {% if formErrors.password %}
+                <p style="color: red;">{{ formErrors.password }}</p>
+            {% endif %}
+
+            {% if formErrors.password_repeated %}
+                <p style="color: red;">{{ formErrors.password_repeated }}</p>
+            {% endif %}
+
+            {% if formErrors.birthdate %}
+                <p style="color: red;">{{ formErrors.birthdate }}</p>
+            {% endif %}
+
+            {% if formErrors.date %}
+                <p style="color: red;">{{ formErrors.date }}</p>
+            {% endif %}
+
+            {% if formErrors.telephone %}
+                <p style="color: red;">{{ formErrors.telephone }}</p>
+            {% endif %}
+
+            {% if formErrors.token %}
+                <p style="color: yellow;">{{ formErrors.token }}</p>
+            {% endif %}
+        </form>
+    </section>
+{% endblock %}

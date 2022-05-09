@@ -1,0 +1,60 @@
+{% extends 'base.twig' %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+    <section class="form-section">
+        <form action="{{ formAction }}" method="{{ formMethod }}" enctype=multipart/form-data accept-charset="utf-8">
+            <div class="input-wrapper" >
+                <p for="img">Update Profile Picture:</p>
+                <input type="file" id="img" name="profile_pic" accept="image/png, image/jpg, image/jpeg">
+            </div>
+            {% if formErrors.profile_pic %}
+            <p style="color: red;">{{ formErrors.profile_pic }}</p>
+            {% endif %}
+
+            <div class="input-wrapper" >
+                <input
+                      type="text"
+                      name="username"
+                      value={{ username }}
+                      readonly
+                      placeholder="Username"
+                >
+            </div>
+
+            <div class="input-wrapper" >
+                    <input type="text"
+                           name="email"
+                           value={{ email }}
+                           readonly
+                           placeholder="Email"
+                    >
+            </div>
+
+            <div class="input-wrapper" >
+                <input
+                   type="date"
+                   name="birthdate"
+                   value= {{ birthdate }}
+                   readonly>
+            </div>
+
+            <div class="input-wrapper" >
+                <input type="tel"
+                   name="telephone"
+                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                   placeholder= "123-456-789"
+                   value="{{ phone }}">
+            </div>
+            {% if formErrors.phone %}
+            <p style="color: red;">{{ formErrors.phone }}</p>
+            {% endif %}
+            <p>
+            <input class="submit" type="submit" value="Send">
+
+            <p><a href='/profile/changePassword'> Change Password </a></p>
+            <p><a href='/user/friends'> See Friends </a></p>
+        </form>
+    </section>
+{% endblock %}

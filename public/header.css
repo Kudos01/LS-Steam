@@ -1,0 +1,36 @@
+.header-item {
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+.header-item a:hover, a:active{
+    color:grey !important;
+}
+
+.header-item a, .logout {
+    font-size: x-large;
+}
+
+.header-item a:visited {
+    color: white;
+    text-decoration-line: none;
+}
+
+.header-item a:link{
+    color:white;
+    text-decoration-line: none;
+}
+
+.logout {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color:white;
+    cursor: pointer;
+}
+
+.logout:active, .logout:hover {
+    color:grey !important;
+}

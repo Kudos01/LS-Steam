@@ -1,0 +1,43 @@
+{% extends 'base.twig' %}
+
+{% block title %}Login form{% endblock %}
+
+{% block content %}
+    <section class="form-section">
+        <form action="{{ formAction }}" method="{{ formMethod }}" accept-charset="utf-8">
+            <div class="input-wrapper">
+                <input type="text"
+                       name="email"
+                       value="{% if formData.email %}{{ formData.email }}{% endif %}"
+                       required
+                       placeholder="Email/Username"
+                >
+            </div>
+            <div class="input-wrapper">
+                    <input
+                       type="password"
+                       name="password"
+                       value="{% if formData.password %}{{ formData.password }}{% endif %}"
+                       required
+                       placeholder="Password"
+                    >
+            </div>
+
+            <div class="input-wrapper">
+                <input class="submit" type="submit" value="Login">
+            </div>
+
+            {% if formErrors.email %}
+                <p style="color: red;">{{ formErrors.email }}</p>
+            {% endif %}
+
+            {% if formErrors.password %}
+                <p style="color: red;">{{ formErrors.password }}</p>
+            {% endif %}
+
+            {% if formErrors.not_logged_in %}
+                <p style="color: red;">{{ formErrors.not_logged_in }}</p>
+            {% endif %}
+        </form>
+    </section>
+{% endblock %}

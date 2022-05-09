@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+
+{% block title %}Redeem Token{% endblock %}
+
+{% block content %}
+    Redeem Token
+    {% if tokenIsSuccessfullyRedeemed %}
+        <p style="color: green;">The token has been successfully redeemed :)</p>
+    {% endif %}
+    {% if tokenAlreadyUsed %}
+        <p style="color: red;">The token is invalid :( </p>
+    {% endif %}
+{% endblock %}

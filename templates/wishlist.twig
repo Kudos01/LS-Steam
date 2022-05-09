@@ -1,0 +1,31 @@
+{% extends 'base.twig' %}
+
+{% block title %}Wishlist{% endblock %}
+
+{% block content %}
+    <h2>Your Wishlist</h2>
+    {% if wishlist is not empty %}
+        <div class="main-wrapper">
+        <div class="deals-list">
+            {% for deal in wishlist %}
+                <form method="post" action="/store/buy/{{ deal.gameID }}">
+                <div class="deal">
+                    <a class="game-image-wrapper" href="/user/wishlist/{{ deal.gameID }}">
+                        <img class="game-image" src={{ deal.thumb }}  width="100" height="100">
+                    </a>
+                    <p>{{ deal.title }}</p>
+                    <p>{{ deal.gameID }}</p>
+                    <p>{{ deal.normalPrice }}</p>
+                    <input hidden value={{ deal.normalPrice }} name="normalPrice">
+                    <input class="buy-button" type="submit" value="Buy the game">
+                    <button class="wishlist-button" onclick="removeGame({{deal.gameID}})" action="/user/wishlist/{{ deal.gameID }}">Remove</button>
+                </div>
+                </form>
+            {% endfor %}
+        </div>
+        </div>
+    {% endif %}
+    {% if wishlist is empty %}
+        <p> You don't have any games on your wishlist, please visit our <a href="/store"> store </a> to see the offers. </p>
+    {% endif %}
+{% endblock %}

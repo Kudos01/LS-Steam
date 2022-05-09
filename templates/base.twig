@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="WP2 Semester 2 Final Project - LSteam">
+    <meta name="keywords" content="HTML, CSS, PHP, Twig, Docker">
+    <meta name="authors" content="Arcadia Youlten, Felipe Perez, Barbara Rekowska">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/form-section.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/deals.css">
+    <link rel="stylesheet" href="/friend-requests.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+    {% block javascripts %}
+        <script src="/js/wishlistDelete.js"></script>
+    {% endblock %}
+</head>
+<body>
+    <header>
+        {% block header %}
+            {% if session.user_id > -1 %}
+            <div class="header-item">
+                <a href='/profile'><img src="/uploads/{{session.picture_uuid}}" height="50px" width="50px" alt="Profile"/></a>
+            </div>
+            <div class="header-item">
+                <a href='/user/wallet'> Wallet </a>
+            </div>
+            <div class="header-item">
+                <a href='/store'> Store </a>
+            </div>
+            <div class="header-item">
+                <a href='/user/myGames'> My Games </a>
+            </div>
+            <div class="header-item">
+                <a href='/user/wishlist'> Wishlist </a>
+            </div>
+            <div class="header-item">
+                <form action="/logout" method="POST" accept-charset="utf-8">
+                    <input class="logout" type="submit" value="logout">
+                </form>
+            </div>
+
+            {% endif %}
+
+            {% if session.user_id == -1 %}
+                <div class="header-item">
+                    <a href='/register'> Register </a>
+                </div>
+                <div class="header-item">
+                    <a href='/login'> Login </a>
+                </div>
+            {% endif %}
+
+        {% endblock %}
+    </header>
+        {% block content %}{% endblock %}
+    <footer>
+        <a href="/">LSteam</a>
+        <p>Made By: Arcadia, Barbara, & Felipe</p>
+        <p>arcadia.youlten, barbara.rekowska & felipe.perez </p>
+    </footer>
+</body>
+</html>
+

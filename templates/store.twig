@@ -1,0 +1,33 @@
+{% extends 'base.twig' %}
+
+{% block title %}Store Page{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the store page! </h1>
+    {% if errors is not empty %}
+        <p style="color: red;">{{ errors['moneyError'][0] }}</p>
+    {% endif %}
+    {% if deals is not empty %}
+        <div class="main-wrapper">
+        <div class="deals-list">
+            {% for deal in deals %}
+                <div class="deal">
+                        <div class="game-image-wrapper">
+                            <img class="game-image" src={{ deal.thumb }}>
+                        </div>
+                        <p>{{ deal.title }}</p>
+                        <p>{{ deal.gameID }}</p>
+                        <p>{{ deal.normalPrice }} €</p>
+                    <form method="post" action="/store/buy/{{ deal.gameID }}">
+                        <input hidden value={{ deal.normalPrice }} name="normalPrice">
+                        <input class="buy-button" type="submit" value="BUY">
+                    </form>
+                    <form method="post" action="/user/wishlist/{{ deal.gameID }}">
+                        <input class="wishlist-button" type="submit" value="ADD TO WISHLIST">
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    {% endif %}
+{% endblock %}

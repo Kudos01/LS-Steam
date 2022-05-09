@@ -1,0 +1,29 @@
+{% extends 'base.twig' %}
+
+{% block title %}Send Friend Request form{% endblock %}
+
+{% block content %}
+<section class="form-section">
+        <form action="{{ formAction }}" method="{{ formMethod }}" accept-charset="utf-8">
+        <h3> Send Friend Request </h3>
+            <p>Friend's Username: </p><input type="text"
+                name="username"
+                value="{% if formData.username %}{{ formData.username }}{% endif %}"
+                required>
+            <p>
+            <input type="submit" value="Send">
+            </p>
+            {% if formErrors.username %}
+                <p style="color: red;">{{ formErrors.username }}</p>
+            {% endif %}
+
+            {% if success %}
+                <p style="color: green;">{{ success }}</p>
+            {% endif %}
+            <p></p>
+             <p><a href='/user/friends'> See friend list </a></p>
+             <a href='/user/friendRequests'> See friend requests </a>
+             <p><a href='/profile/'> Your profile </a></p>
+        </form>
+    </section>
+{% endblock %}

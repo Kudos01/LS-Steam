@@ -1,0 +1,24 @@
+{% extends 'base.twig' %}
+
+{% block title %}Friend List{% endblock %}
+
+{% block content %}
+    <h3>Friends List</h3>
+        <table>
+        <tr>
+            <td><b>Username</b></td>
+            <td><b>Friends Since</b></td>
+        </tr>
+        {% for friend in all_friends %}
+            <tr>
+                <td>{{ friend.requester_username }}</td>
+                <td>{{ friend.accept_date}}</td>
+            </tr>
+        {% endfor %}
+
+        </table>
+        <p><a href='/user/friendRequests'> See friend requests </a></p>
+        <p><a href='/user/friendRequests/send'> Make a friend request </a></p>
+        <p><a href='/profile/'> Your profile </a></p>
+
+{% endblock %}

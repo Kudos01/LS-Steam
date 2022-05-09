@@ -1,0 +1,162 @@
+.form-section {
+	background: #151515;
+	height: inherit;
+	text-align: center;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.form-section .input-wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin: 5px;
+}
+
+.form-section form {
+	background: #111111;
+	background: linear-gradient(#1b1b1b, #111);
+	border: 1px solid #000;
+	border-radius: 5px;
+	box-shadow: inset 0 0 0 1px #272727;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	margin: 150px auto 150px;
+	padding: 20px;
+	position: relative;
+	z-index: 1;
+}
+
+.form-section input {
+	background: #222;
+	background: linear-gradient(#333, #222);
+	border: 1px solid #444;
+	border-radius: 5px;
+	box-shadow: 0 2px 0 #000;
+	color: #55ff55;
+	display: block;
+	float: left;
+	font-size: 13px;
+	font-weight: 400;
+	height: 40px;
+	margin: 0;
+	padding: 0 10px;
+	text-shadow: 0 -1px 0 #000;
+	width: 200px;
+}
+
+.form-section .submit {
+	cursor: pointer;
+}
+
+.ie .form-section input {
+	line-height: 40px;
+}
+
+.form-section input::-webkit-input-placeholder {
+	color: #888;
+}
+
+.form-section input:-moz-placeholder {
+	color: #888;
+}
+
+.form-section input:read-only {
+	color: grey;
+}
+
+.form-section input:focus {
+	animation: glow 800ms ease-out infinite alternate;
+	background: #222922;
+	background: linear-gradient(#333933, #222922);
+	border-color: #393;
+	box-shadow: 0 0 5px rgba(0, 255, 0, 0.2), inset 0 0 5px rgba(0, 255, 0, 0.1),
+		0 2px 0 #000;
+	color: #efe;
+	outline: none;
+}
+
+.form-section input:focus::-webkit-input-placeholder {
+	color: #efe;
+}
+
+.form-section input:focus:-moz-placeholder {
+	color: #efe;
+}
+
+.form-section button {
+	background: #222;
+	background: linear-gradient(#333, #222);
+	box-sizing: border-box;
+	border: 1px solid #444;
+	border-left-color: #000;
+	border-radius: 0 5px 5px 0;
+	box-shadow: 0 2px 0 #000;
+	color: #fff;
+	display: block;
+	float: left;
+	font-size: 13px;
+	font-weight: 400;
+	height: 40px;
+	line-height: 40px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	text-shadow: 0 -1px 0 #000;
+	width: 80px;
+}
+
+.form-section button:hover,
+.form-section button:focus {
+	background: #292929;
+	background: linear-gradient(#393939, #292929);
+	color: #5f5;
+	outline: none;
+}
+
+.form-section button:active {
+	background: #292929;
+	background: linear-gradient(#393939, #292929);
+	box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+	top: 1px;
+}
+
+.form-section p {
+	height: 20px;
+}
+
+.form-section a {
+	color: white;
+}
+
+.form-section a:visited {
+	text-decoration-line: none;
+}
+
+.form-section a:link {
+	color: white;
+	text-decoration-line: none;
+}
+
+.form-section a:hover,
+a:active {
+	color: grey !important;
+}
+
+@keyframes glow {
+	0% {
+		border-color: #393;
+		box-shadow: 0 0 5px rgba(0, 255, 0, 0.2), inset 0 0 5px rgba(0, 255, 0, 0.1),
+			0 2px 0 #000;
+	}
+	100% {
+		border-color: #66ff66;
+		box-shadow: 0 0 20px rgba(0, 255, 0, 0.6),
+			inset 0 0 10px rgba(0, 255, 0, 0.4), 0 2px 0 #000;
+	}
+}

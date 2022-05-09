@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+
+{% block title %}Landing Page{% endblock %}
+
+{% block content %}
+    <div class="main-wrapper">
+        <h2>Welcome to LSteam ! :) </h2>
+        <h3>Buy games, add them to the wishlist</h3>
+        <h3>Add friends, and have fun!</h3>
+    </div>
+
+{% if formErrors.error %}
+    <p style="color: red;">{{ formErrors.error }}</p>
+{% endif %}
+
+{% endblock %}

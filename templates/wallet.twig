@@ -1,0 +1,25 @@
+{% extends 'base.twig' %}
+
+{% block title %}Wallet Page{% endblock %}
+
+{% block content %}
+    <section class="form-section">
+        <form action="{{ formAction }}" method="{{ formMethod }}" accept-charset="utf-8">
+            <div class="input-wrapper">
+                <p>Account Balance: {% if money_amount %}{{ money_amount }}{% endif %}<br></p>
+            </div>
+            <div class="input-wrapper">
+                <p>Money to add: </p>
+                <input type="text"
+                   name="money"
+                   value="{% if formData.money %}{{ formData.money }}{% endif %}"
+                   required>
+            </div>
+            <input class="submit" type="submit" value="Add Money">
+
+            {% if formErrors.money %}
+                <p style="color: red;">{{ formErrors.money }}</p>
+            {% endif %}
+        </form>
+    </section>
+{% endblock %}
