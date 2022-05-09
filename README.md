@@ -42,6 +42,6 @@ If the credentials are correct, you will be redirected to the search page, wehre
 
 ## Authors
 
-Felipe Perez Stoppa
-Arcadia Youlten
+Felipe Perez Stoppa, 
+Arcadia Youlten, 
 Barbara Rekowska

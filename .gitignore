@@ -5,3 +5,4 @@ composer.lock
 composer.json
 /public/uploads/*
 !/public/uploads/default_picture.png
+/.gitOLD
